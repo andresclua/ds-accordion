@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <title>JS Utilities by - Andrés Clúa</title>
+</head>
+<body>
+    <section class="mt-2 mb-2">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h5>Collapse</h5>
+                    <style>
+                       .b--modal-a {
+  opacity: 0;
+  visibility: hidden;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  transition: all 0.3s ease-in-out;
+  width: 60%;
+  background-color: #78f2c5;
+  padding: 2rem;
+  transition: transform 0.3s 0s ease;
+}
+.b--modal-a__btn {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  color: #1a191d;
+}
+.b--modal-a__btn__icon {
+  color: #1a191d;
+  height: 1rem;
+}
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .b--modal-a__btn__icon {
+    width: 1rem;
+  }
+}
+.b--modal-a__btn__icon path {
+  fill: #1a191d;
+}
+.b--modal-a--is-active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.b--modal-backdrop-a {
+  visibility: visible;
+  opacity: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 100;
+  background-color: rgba(26, 25, 29, 0.7);
+  transform: translate(0px, 100%);
+  transition: transform 0.3s 0s ease;
+}
+.b--modal-backdrop-a--is-active{
+  transform: translate(0px, 0%);
+}
+
+                    </style>
+
+        <button type="button" class="b--btn-a"  tf-ds-modal-target="modal-1">
+          Launch demo modal
+        </button>
+
+        <div id="modal-1" class="b--modal-a" role="dialog">
+            <h3 class="f--font-third">Welcome to a super modal</h3>
+            <img src="https://www.turn-keytechnologies.com/wp-content/uploads/2020/02/aruba-mobility-master.png" alt="">
+            <p class="">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+            <button class="b--modal-a__btn" tf-ds-modal-close="modal-1" aria-label="Close">
+                <svg class="b--modal-a__btn__icon apb apb-close" viewBox="0 0 15.81 15.81" enable-background="new 0 0 15.81 15.81" xml:space="preserve">
+                    <path d="M8.74,8.03l6.82,6.82l-0.71,0.71L8.03,8.74l-7.07,7.07L0.25,15.1l7.07-7.07L0,0.71L0.71,0l7.32,7.32l7.07-7.07l0.71,0.71
+                    L8.74,8.03z"/>
+                </svg>
+            </button>
+        </div>
+                    
+                <!-- <button 
+                    class="b--btn-a" 
+                    data-ds-element="modal"
+                    data-target="#modal-1"
+                    data-onload="false"
+                    data-onload-time="3"
+                    data-target-class="b--modal-a--is-active"
+                    data-backdrop="b--modal-backdrop-a"
+                    data-backdrop-class="b--backdrop-a--is-active">
+                    Trigger Modal
+                </button>
+                
+                <div id="modal-1" class="b--modal-a" role="dialog">
+                    <h3 class="f--font-third">Welcome to a super modal</h3>
+                    <img src="https://www.turn-keytechnologies.com/wp-content/uploads/2020/02/aruba-mobility-master.png" alt="">
+                    <p class="">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                    <button class="b--modal-a__btn" data-dismiss="modal-1" aria-label="Close">
+                        <svg class="b--modal-a__btn__icon apb apb-close" viewBox="0 0 15.81 15.81" enable-background="new 0 0 15.81 15.81" xml:space="preserve">
+                            <path d="M8.74,8.03l6.82,6.82l-0.71,0.71L8.03,8.74l-7.07,7.07L0.25,15.1l7.07-7.07L0,0.71L0.71,0l7.32,7.32l7.07-7.07l0.71,0.71
+                            L8.74,8.03z"/>
+                        </svg>
+                    </button>
+                </div>
+           -->
+
+
+                    <hr>
+                    
+                   
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <br><br><br><br><br><br><br>
+
+    <script src="./main.js"></script>
+</body>
+</html>
