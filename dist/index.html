@@ -8,120 +8,89 @@
     <title>JS Utilities by - Andrés Clúa</title>
 </head>
 <body>
-    <section class="mt-2 mb-2">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <h5>Collapse</h5>
-                    <style>
-                       .b--modal-a {
-  opacity: 0;
-  visibility: hidden;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1000;
-  transition: all 0.3s ease-in-out;
-  width: 60%;
-  background-color: #78f2c5;
-  padding: 2rem;
-  transition: transform 0.3s 0s ease;
-}
-.b--modal-a__btn {
-  position: absolute;
-  top: 2rem;
-  right: 2rem;
-  color: #1a191d;
-}
-.b--modal-a__btn__icon {
-  color: #1a191d;
-  height: 1rem;
-}
-@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-  .b--modal-a__btn__icon {
-    width: 1rem;
-  }
-}
-.b--modal-a__btn__icon path {
-  fill: #1a191d;
-}
-.b--modal-a--is-active {
-  visibility: visible;
-  opacity: 1;
-}
+  <section class="mt-2 mb-2">
+      <div class="container">
+          <div class="row">
+              <div class="col">
+                  <h5>Accordion</h5>
+                  <style>
+                    .b--accordion-a{
+                      border:1px solid #3ca8b0
+                    }
+                    .b--accordion-a__hd{
+                      position:relative;
+                      width:100%;
+                      height:100%;
+                      padding:.5rem;
+                      background-color:rgba(120,242,197,.4);
+                      cursor:pointer
+                    }
+                    .b--accordion-a__hd__title{
+                      font-family:Jost,sans-serif;
+                      font-weight:300;
+                      line-height:1.35;
+                      letter-spacing:.26px;
+                      font-size:1rem;
+                      color:#3ca8b0;
+                      text-decoration:none!important
+                    }
+                    .b--accordion-a__bd{
+                      max-height:0;
+                      overflow:hidden;
+                      -webkit-transition:max-height .6s cubic-bezier(0,1,0,1);
+                      transition:max-height .6s cubic-bezier(0,1,0,1)
+                    }
+                    .b--accordion-a__bd__content{
+                      padding:.5rem
+                    }
+                    .b--accordion-a--is-active .b--accordion-a__hd{
+                      border-bottom:1px solid #3ca8b0
+                    }
+                    .b--accordion-a--is-active .b--accordion-a__hd__artwork--first{
+                      display:none
+                    }
+                    .b--accordion-a--is-active .b--accordion-a__hd__artwork--second{
+                      display:block
+                    }
+                    .b--accordion-a--is-active .b--accordion-a__bd{
+                      max-height:99em;
+                      -webkit-transition:max-height .9s ease-in-out
+                      ;transition:max-height .9s ease-in-out
+                    }
 
-.b--modal-backdrop-a {
-  visibility: visible;
-  opacity: 1;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  z-index: 100;
-  background-color: rgba(26, 25, 29, 0.7);
-  transform: translate(0px, 100%);
-  transition: transform 0.3s 0s ease;
-}
-.b--modal-backdrop-a--is-active{
-  transform: translate(0px, 0%);
-}
+                  </style>
 
-                    </style>
-
-        <button type="button" class="b--btn-a"  tf-ds-modal-target="modal-1">
-          Launch demo modal
-        </button>
-
-        <div id="modal-1" class="b--modal-a" role="dialog">
-            <h3 class="f--font-third">Welcome to a super modal</h3>
-            <img src="https://www.turn-keytechnologies.com/wp-content/uploads/2020/02/aruba-mobility-master.png" alt="">
-            <p class="">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-            <button class="b--modal-a__btn" tf-ds-modal-close="modal-1" aria-label="Close">
-                <svg class="b--modal-a__btn__icon apb apb-close" viewBox="0 0 15.81 15.81" enable-background="new 0 0 15.81 15.81" xml:space="preserve">
-                    <path d="M8.74,8.03l6.82,6.82l-0.71,0.71L8.03,8.74l-7.07,7.07L0.25,15.1l7.07-7.07L0,0.71L0.71,0l7.32,7.32l7.07-7.07l0.71,0.71
-                    L8.74,8.03z"/>
-                </svg>
-            </button>
-        </div>
-                    
-                <!-- <button 
-                    class="b--btn-a" 
-                    data-ds-element="modal"
-                    data-target="#modal-1"
-                    data-onload="false"
-                    data-onload-time="3"
-                    data-target-class="b--modal-a--is-active"
-                    data-backdrop="b--modal-backdrop-a"
-                    data-backdrop-class="b--backdrop-a--is-active">
-                    Trigger Modal
-                </button>
-                
-                <div id="modal-1" class="b--modal-a" role="dialog">
-                    <h3 class="f--font-third">Welcome to a super modal</h3>
-                    <img src="https://www.turn-keytechnologies.com/wp-content/uploads/2020/02/aruba-mobility-master.png" alt="">
-                    <p class="">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-                    <button class="b--modal-a__btn" data-dismiss="modal-1" aria-label="Close">
-                        <svg class="b--modal-a__btn__icon apb apb-close" viewBox="0 0 15.81 15.81" enable-background="new 0 0 15.81 15.81" xml:space="preserve">
-                            <path d="M8.74,8.03l6.82,6.82l-0.71,0.71L8.03,8.74l-7.07,7.07L0.25,15.1l7.07-7.07L0,0.71L0.71,0l7.32,7.32l7.07-7.07l0.71,0.71
-                            L8.74,8.03z"/>
-                        </svg>
-                    </button>
-                </div>
-           -->
-
-
-                    <hr>
-                    
-                   
-
-                </div>
-            </div>
-        </div>
-    </section>
-    <br><br><br><br><br><br><br>
-
-    <script src="./main.js"></script>
+                  <div class="f--mb-24" 
+                  id="accordionExample" 
+                  tf-ds-element="accordion" 
+                  data-target-class-active="b--accordion-a--is-active" 
+                  data-accordion-active-id="accordion-2" 
+                  data-close="false">
+                    <div class="b--accordion-a" id="accordion-1" tf-ds-acc-body="accordion-1"> 
+                        <div class="b--accordion-a__hd">
+                            <p class="b--accordion-a__hd__title" tf-ds-acc-target="accordion-1">Accordion 1</p>
+                        </div>
+                        <div class="b--accordion-a__bd">
+                            <div class="b--accordion-a__bd__content b--content-a">
+                                <p>Accordion content 1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, corrupti! Beatae ratione quas ab, tenetur id ut, debitis error repudiandae sint minima voluptatibus, dolorem expedita molestias. Quam assumenda odit sequi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem voluptatum, commodi, quisquam cum perspiciatis similique facilis blanditiis debitis dicta ullam, temporibus a nulla laboriosam dignissimos veniam sequi molestiae voluptates veritatis.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="b--accordion-a" id="accordion-2" tf-ds-acc-body="accordion-2"> 
+                        <div class="b--accordion-a__hd">
+                            <p class="b--accordion-a__hd__title" tf-ds-acc-target="accordion-2">Accordion 2</p>
+                        </div>
+                        <div class="b--accordion-a__bd">
+                            <div class="b--accordion-a__bd__content b--content-a">
+                                <p>Accordion content 1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, corrupti! Beatae ratione quas ab, tenetur id ut, debitis error repudiandae sint minima voluptatibus, dolorem expedita molestias. Quam assumenda odit sequi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem voluptatum, commodi, quisquam cum perspiciatis similique facilis blanditiis debitis dicta ullam, temporibus a nulla laboriosam dignissimos veniam sequi molestiae voluptates veritatis.</p>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+  <script src="./main.js"></script>
 </body>
 </html>

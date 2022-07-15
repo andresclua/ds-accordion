@@ -1,21 +1,21 @@
 {
-  "name": "@andresclua/modal",
+  "name": "@andresclua/accordion",
   "version": "0.0.7",
-  "description": "Modal Component",
+  "description": "Accordion Component",
   "main": "",
   "scripts": {
     "webpack": "webpack --watch"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/andresclua/ds-modal.git"
+    "url": "git+https://github.com/andresclua/ds-accordion.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/andresclua/ds-modal/issues"
+    "url": "https://github.com/andresclua/ds-accordion/issues"
   },
-  "homepage": "https://github.com/andresclua/ds-modal#readme",
+  "homepage": "https://github.com/andresclua/ds-accordion#readme",
   "devDependencies": {
     "babel-loader": "^8.2.2",
     "webpack": "^5.37.1",
@@ -26,6 +26,6 @@
     "@babel/core": "^7.14.3"
   },
   "keywords": [
-    "Modal"
+    "Accordion"
   ]
 }

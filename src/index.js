@@ -1,21 +1,17 @@
 
-import Modal from './Modal';
+import Accordion from './Accordion';
 class Page{
     constructor(){
         this.init()
     }
     init(){ 
-        // const options = {
-        //     modalActiveClass: 'b--modal-a--is-active',
-        //     backdrop: 'b--modal-backdrop-a',
-        //     backdropActiveClass: 'b--modal-backdrop-a--is-active',
-        // };
-        const modal = new Modal({
-            backdrop: 'b--modal-backdrop-a',
-            backdropActiveClass: 'b--modal-backdrop-a--is-active',
-            modal:'b--modal-a',
-            modalIdTarget : 'modal-1',
-            modalActiveClass:'b--modal-a--is-active',
+        const accordion = new Accordion({
+            accActive : 'accordion-1',
+            accActiveClass : 'b--accordion-a--is-active',
+            accClose : false,
+            accAllOpen : false,
+            accTrigger : 'tf-ds-acc-target',
+            accBody : 'tf-ds-acc-body',
             onHide : () => {
                 console.log("hide modal");
             },
@@ -23,12 +19,6 @@ class Page{
                 console.log("show");
             }
         });
-        modal.show()
-        setTimeout(()=>{
-            modal.hide()
-        },3000)
-        // // document.querySelector("[tf-ds-element='modal']")
-
     }
 }
 export default Page;
