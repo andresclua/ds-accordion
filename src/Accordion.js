@@ -8,6 +8,9 @@ class Accordion {
         this.accClose = config.accClose
         this.accAllOpen = config.accAllOpen
 
+        this.onshow = config.onShow;
+        this.onhide = config.onHide;
+
         this.JSUTIL = new JSUTIL();
         this.init()
         this.events()
@@ -27,6 +30,8 @@ class Accordion {
     show(){
         console.log(this.accActive);
         this.JSUTIL.addClass(document.getElementById(this.accActive),this.accActiveClass);
+        if(this.onshow)
+            this.onshow()
     }
     toggle(element){
         // Hides all active classes
@@ -56,6 +61,8 @@ class Accordion {
         document.querySelectorAll(`[${this.accBody}]`).forEach((element)=>{
             this.JSUTIL.removeClass(element,this.accActiveClass)
         });
+        if(this.onhide)
+            this.onhide()
     }
 
     hideAllTabsExceptActual(targetID){
